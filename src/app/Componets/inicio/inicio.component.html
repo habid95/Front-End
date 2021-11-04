@@ -1,0 +1,110 @@
+<div class="container">
+    <div class="d-flex justify-content-around p-2 m-2">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalAgregar">
+            Agregar nuevo usuario
+        </button>
+
+
+        <button (click)="LDelet()" type="text" class="btn btn-danger">
+            cerrar session
+        </button>
+    </div>
+
+
+    <!-- <a href="" (click)="LDelet">cerrar session</a> -->
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">correo</th>
+                <th scope="col">telefono</th>
+                <th scope="col">editar</th>
+                <th scope="col">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuario of ListarUsuario">
+                <th>{{usuario.username}}</th>
+                <th>{{usuario.correo}}</th>
+                <th>{{usuario.telefono}}</th>
+                <th>
+                    <!-- <button (click)="CargarUsuario(usuario.id)" type="button" class="btn btn-success">Modificar</button> -->
+                    <button (click)="CargarUsuario(usuario.id)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Modificar
+                    </button>
+
+                </th>
+                <th>
+                    <button (click)="eliminar(usuario.id)" type="button" class="btn btn-danger">Eliminar</button>
+                    <!-- <button (click)="eliminar(usuario.ID)" type="button" class="btn btn-danger">Eliminar</button> -->
+                </th>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="container p-5">
+                <div class="mb-3">
+                    <label for="" class="form-label">Nombre del usuario</label>
+                    <input [(ngModel)]="usuario.username" type="text" class="form-control" name="nombre">
+                    <!--  -->
+                </div>
+                <div class="mb-3">
+                    <label for="correo" class="form-label">correo</label>
+                    <input [(ngModel)]="usuario.correo" type="text" class="form-control" name="correo">
+                </div>
+                <div class="mb-3">
+                    <label for="telefono" class="form-label">telefono</label>
+                    <input [(ngModel)]="usuario.telefono" type="text" class="form-control" name="telefono">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" (click)="modificar(usuario.id)" data-bs-dismiss="modal" class="btn btn-primary ">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Agregar -->
+<div class="modal fade" id="ModalAgregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form p-5" #registerForm="ngForm" (ngSubmit)="AgregarUsuario(registerForm)">
+
+                <div class="container p-5">
+                    <div class="mb-3">
+                        <label for="" class="form-label">Nombre del usuario</label>
+                        <input [(ngModel)]="usuario.username" type="text" class="form-control" name="nombre">
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">correo</label>
+                        <input [(ngModel)]="usuario.correo" type="text" class="form-control" name="correo">
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">telefono</label>
+                        <input [(ngModel)]="usuario.telefono" type="text" class="form-control" name="telefono">
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <input type="submit" value="Guardar" data-bs-dismiss="modal" class="btn btn-success btn-md" />
+                    <!-- <button type="button" (click)="modificar(usuario.id)" data-bs-dismiss="modal" class="btn btn-primary ">Guardar cambios</button> -->
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
