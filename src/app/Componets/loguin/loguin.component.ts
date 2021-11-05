@@ -15,7 +15,7 @@ export class LoguinComponent implements OnInit {
   
   usuario: Usuario={
     username :"",
-    contrasena:""
+    password:""
   };
 
   constructor(private route:Router,private usuarioService:UsuarioService) { }

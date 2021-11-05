@@ -3,5 +3,5 @@ export interface Usuario{
     username?:string;
     correo?:string;
     telefono?:string;
-    contrasena?:string;
+    password?:string;
   }

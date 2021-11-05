@@ -22,12 +22,12 @@ export class InicioComponent implements OnInit {
     username :"",
     correo:"",
     telefono:"",
-    contrasena:"",
+    password:"",
   };
 
   currentUser: Usuario={
     username :"",
-    contrasena:""
+    password:""
   };
   
 
@@ -35,7 +35,7 @@ export class InicioComponent implements OnInit {
   ngOnInit(): void {
     this.ListarUsuarios()
     this.OLocal();
-    // console.log('hola '+this.ListarUsuario[0]);
+    // console.log('hola '+this.ListarUsuario);
   }
 
   LDelet(){
@@ -54,7 +54,7 @@ export class InicioComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('persona') || '{}');
 
     let usuario = this.currentUser.username;
-    let contrasena = this.currentUser.contrasena;
+    let contrasena = this.currentUser.password;
     console.log('usuario y cotntraseña del local: ' +usuario+'  '+contrasena);
     if( !contrasena && !usuario ){
       
@@ -83,8 +83,11 @@ export class InicioComponent implements OnInit {
   ListarUsuarios(){
     this.usuarioService.getUsarios().subscribe(
       res =>{
-        // console.log(res)
+        let ress =  Object.keys(res);
+        console.log(ress);
+        console.log(res)
         this.ListarUsuario=<any>  res;
+        // console.log(typeof(this.ListarUsuario))
       },
       err =>{
         // console.log(err)        
@@ -108,8 +111,8 @@ export class InicioComponent implements OnInit {
 
   modificar(id:number){
 
-
-    console.log(id);
+    console.log("metodo modificar");
+    console.log(this.usuario);
     this.usuarioService.ModificarUsuario(this.usuario.id,this.usuario).subscribe(
       res =>{
         console.log(res)

@@ -39,8 +39,8 @@ export class UsuarioService {
 
   //Login Usuario
   buscarUsurio(usuario:Usuario){
-    console.log(this.url + '/' +usuario.username+'/'+usuario.contrasena);
-    return this.http.get(this.url + '/' +usuario.username+'/'+usuario.contrasena);
+    console.log(this.url + '/' +usuario.username+'/'+usuario.password);
+    return this.http.get(this.url + '/' +usuario.username+'/'+usuario.password);
   }
 
 }
