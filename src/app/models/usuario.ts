@@ -4,4 +4,6 @@ export interface Usuario{
     correo?:string;
     telefono?:string;
     password?:string;
+    fecha_actualizacion?:Date;
+    fecha_creacion?:Date;
   }

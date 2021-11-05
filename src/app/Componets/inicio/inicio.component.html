@@ -20,6 +20,8 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">correo</th>
                 <th scope="col">telefono</th>
+                <th scope="col">Fecha de creacion</th>
+                <th scope="col">Fecha de actualizacion</th>
                 <th scope="col">editar</th>
                 <th scope="col">Eliminar</th>
             </tr>
@@ -29,6 +31,8 @@
                 <th>{{usuario.username}}</th>
                 <th>{{usuario.correo}}</th>
                 <th>{{usuario.telefono}}</th>
+                <th>{{usuario.fecha_creacion | date }}</th>
+                <th>{{usuario.fecha_actualizacion | date }}</th>
                 <th>
                     <!-- <button (click)="CargarUsuario(usuario.id)" type="button" class="btn btn-success">Modificar</button> -->
                     <button (click)="CargarUsuario(usuario.id)" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
